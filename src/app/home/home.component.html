@@ -1,0 +1,49 @@
+<div class="background"></div>
+<div class="container">
+  <div class="box-container">
+    <div class="title">
+      <h1>Welcome to TTT!</h1>
+      <h1>Tune Trivia Thrill</h1>
+    </div>
+    <div class="box-container-inner">
+      <div *ngIf="authLoading || configLoading">Loading...</div>
+      <div class="choose-your-genre" *ngIf="!authLoading && !configLoading">
+        <h1>Choose Your Genre</h1>
+        <select id="genres" [(ngModel)]="local_SelectedGenre" (ngModelChange)="setGenre($event)">
+          <option [value]=""></option>
+          <option [value]="genre" *ngFor="let genre of genres">
+            {{ genre }}
+          </option>
+        </select>
+      </div>
+      <div class="easy-or-hard">
+        <h1>Choose Your Level</h1>
+        <select name="level" id="level" [(ngModel)]="local_SelectedLevel" (change)="onLevelChange()">
+          <option value=""></option>
+          <option value="easy">Easy</option>
+          <option value="hard">Hard</option>
+        </select>
+      </div>
+      <div class="play" *ngIf="local_SelectedGenre !== '' && local_SelectedLevel !== ''">
+        <a routerLink="/play-game">
+          <button class="play-btn" [disabled]="this.local_SelectedGenre === '' || local_SelectedLevel === ''" (click)="onPlayButtonClick()">Play</button>  
+        </a>
+      </div>
+      <div class="leader-board">
+        <div *ngIf="local_SelectedLevel === 'easy'">
+          <a routerLink="/leader-board">
+            <button class="leader-board-btn">Leaderboard</button>
+          </a>
+        </div>
+        <ng-container *ngIf="local_SelectedLevel === 'hard'">
+          <a routerLink="/leader-board">
+            <button class="leader-board-btn" (click)="hardModeLeaderboard()">
+              Leaderboard</button> 
+          </a>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+</div>
+
+

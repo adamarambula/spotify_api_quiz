@@ -1,0 +1,46 @@
+<div class="background"></div>
+<div class="container">
+    <div class="box-container">
+      <div class="title">
+        <h1>Play {{titleNumber[this.titlePositionNumber]}} Song</h1>
+      </div>
+      <div class="box-container-inner">
+        <audio controls [src]="audioUrl">
+          Your browser does not support the audio element.
+        </audio>
+      </div>
+      <div class="guess-song">
+        <h1>Can you guess this song?</h1>
+      </div>
+      <div class="choies-answers">
+        <div class="choices">
+          <div class="choies-answers">
+            <div class="choices">
+              <app-answer-choice *ngFor="let choice of choices" [choice]="choice" 
+                (answerSelected)="onAnswerSelected($event)" [isSelected]="finalSelectedChoice === choice">
+              </app-answer-choice>
+            </div>
+          </div>
+        </div>
+        <div class="answers"> 
+          <div class="answer-a">
+            <span>{{answerOne}}</span>
+          </div>
+          <div class="answer-b">
+            <span>{{answerTwo}}</span>
+          </div>
+          <div class="answer-c">
+            <span>{{answerThree}}</span>
+          </div>
+          <div class="answer-d">
+            <span>{{answerFour}}</span>
+          </div>
+        </div>
+      </div>
+      <div class="submit-btn">
+        <a routerLink="/check-answer">
+          <button (click)="onSubmit()" [disabled]="finalSelectedChoice === null">Submit</button>
+        </a>
+      </div>
+    </div>
+  </div>  

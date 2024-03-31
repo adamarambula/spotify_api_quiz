@@ -1,0 +1,51 @@
+<div class="background"></div>
+<div class="container">
+  <div class="box-container">
+    <div class="title">
+      <div *ngIf="isCorrect; else correctBlock">
+        <h1>Correct</h1>
+      </div>
+      <ng-template #correctBlock>
+        <h1>Incorrect</h1>
+      </ng-template>
+    </div>
+    <div class="box-container-inner">
+      <div class="current-points">
+        <ng-container *ngIf="isCorrect; else correctPoints">
+          <h5>{{ correctComments[randomNumber] }}</h5>
+        </ng-container>
+        <ng-template #correctPoints>
+          <h5>{{ incorrectComments[randomNumber] }}</h5>
+        </ng-template>
+      </div>
+      <div class="current-points">
+        <ng-container *ngIf="isCorrect; else correctPointsScore">
+          <h1>+1</h1>
+          <h1>Current Score: {{ currentScore }}</h1>
+        </ng-container>
+        <ng-template #correctPointsScore>
+          <h1>+0</h1>
+          <h1>Current Score: {{ currentScore }}</h1>
+        </ng-template>
+      </div>
+    </div>    
+    <div class="box-container-inner">
+      <div class="continue-btn">
+        <ng-container *ngIf="submitted === 10 || lostHardMode; else continueElse">
+          <div>
+            <a routerLink="/results">
+              <button>Continue</button>
+            </a>
+          </div>
+        </ng-container>
+        <ng-template #continueElse>
+          <div *ngIf="submitted !== 10">
+            <a routerLink="/play-game">
+              <button>Continue</button>
+            </a>
+          </div>
+        </ng-template>
+      </div>
+    </div>
+  </div>
+</div>

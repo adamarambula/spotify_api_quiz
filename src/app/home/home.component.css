@@ -1,0 +1,22 @@
+.easy-or-hard select, .choose-your-genre select {
+    width: 200px;
+    font-family: 'Spotify Circular', sans-serif; 
+    font-size: 16px; 
+    color: #1db954; 
+    padding: 10px; 
+    border: 3px solid #1db954;
+    border-radius: 5px; 
+    background-color: #191414; 
+  }
+
+  .play, .leader-board {
+    margin-bottom: 20px; 
+  }
+
+  .easy-or-hard{
+    margin-bottom: 20px;
+  }
+
+  .choose-your-genre{
+    margin-bottom: 3px;
+  }

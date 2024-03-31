@@ -1,0 +1,49 @@
+.your-score{
+    font-size: 1.5em;
+}
+
+input{
+    width: 200px;
+    font-family: 'Spotify Circular', sans-serif; 
+    font-size: 24px; 
+    color: #1db954; 
+    padding: 10px; 
+    border: 3px solid #1db954;
+    border-radius: 5px; 
+    background-color: #191414; 
+}
+
+label{
+    font-size: 2.5em;
+}
+
+.form-box form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .form-box label,
+  .form-box input,
+  .form-box button {
+    margin-bottom: 10%;
+  }
+
+  .form-box input::placeholder {
+    color: #1db954;
+  }
+
+  .try-again{
+    font-size: 3em;
+    margin-bottom: 100px;
+
+  }
+
+  .winner-or-loser{
+    font-size: 2em;
+  }
+
+  .name{
+    text-align:  center;
+  }

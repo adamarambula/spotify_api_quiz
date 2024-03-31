@@ -1,0 +1,20 @@
+.box-container-inner-leaderboard {
+    display: flex;
+    flex-direction: column;
+    height: 100%; 
+  }
+  
+.current-leaders{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+button{
+    margin-bottom: 50px;
+}
+
+.current-leaders h1.leaders {
+    margin-bottom: 0;
+  }

@@ -1,0 +1,52 @@
+   .choies-answers {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start; 
+  }
+  
+  .choices,
+  .answers {
+    display: flex;
+    flex-direction: column;
+    margin-right: 20px; 
+  }
+
+  .answers{
+    margin-top: 5px;
+  }
+  
+  .choices > div {
+    margin-bottom: 10px; 
+  }
+  
+  .answers > div {
+    margin-bottom: 38px; 
+  }
+  
+  .choices > button {
+    display: flex;
+    align-items: center;
+  }
+  
+  .choices button,
+  .answers span {
+    margin-right: 5px;
+  }
+  
+  .choies-answers span {
+    font-size: x-large;
+    text-align: left;
+  }
+
+  .choices {
+    display: flex;
+    flex-wrap: wrap; 
+  }
+  
+  .choices app-answer-choice {
+    margin-right: 10px;
+    margin-bottom: 10px; 
+  }
+  
+  
+  

@@ -1,0 +1,61 @@
+<div class="background"></div>
+<div class="container">
+  <div class="box-container">
+    <!-- Need to figure out how to switch it during easy and hard move -->
+    <div class="title winner-or-loser" *ngIf="ishard">
+      <div *ngIf="finalScore >= 70; else winnerBlock">
+        <h1>Winner!!</h1>
+      </div>
+      <ng-template #winnerBlock>
+        <h1>Loser!!</h1>
+      </ng-template>
+    </div>
+    <div class="title winner-or-loser" *ngIf="!ishard">
+      <div *ngIf="finalScore >= 50; else winnerBlock">
+        <h1>Winner!!</h1>
+      </div>
+      <ng-template #winnerBlock>
+        <h1>Loser!!</h1>
+      </ng-template>
+    </div>
+    <div class="box-container-inner">
+      <div class="your-score">
+        <h1>Your Score:</h1>
+        <h1>{{ finalScore }} %</h1>
+      </div>
+      <div class="winnner-form-hard" *ngIf="ishard">
+        <div class="winner-form" *ngIf="finalScore >= 70; else tryAgainBlock">
+          <div class="form-box">
+            <form #myForm="ngForm" (ngSubmit)="onSubmit(myForm)">
+              <label>Enter Your Name Here</label>
+              <input type="text" name="name" [(ngModel)]="playerName" required placeholder="Name">
+              <button type="submit" [disabled]="!myForm.valid">Submit</button>
+            </form>
+          </div>
+      </div>
+      <ng-template #tryAgainBlock>
+        <h1 class="try-again">Try Again!!</h1>
+        <a routerLink="/leader-board">
+          <button type="button" (click)="onContinue()">Continue</button>
+        </a>
+      </ng-template>
+    </div>    
+      <div class="winner-form-easy" *ngIf="!ishard">
+        <div class="winner-form" *ngIf="finalScore >= 50; else tryAgainBlock">
+          <div class="form-box">
+            <form #myForm="ngForm" (ngSubmit)="onSubmit(myForm)">
+              <label>Enter Your Name Here</label>
+              <input type="text" name="name" [(ngModel)]="playerName" required placeholder="Name">
+              <button type="submit" [disabled]="!myForm.valid">Submit</button>
+            </form>
+          </div>
+      </div>
+      <ng-template #tryAgainBlock>
+        <h1 class="try-again">Try Again!!</h1>
+        <a routerLink="/leader-board">
+          <button type="button" (click)="onContinue()">Continue</button>
+        </a>
+      </ng-template>
+    </div>
+  </div>
+</div>

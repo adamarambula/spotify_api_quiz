@@ -1,0 +1,29 @@
+<div class="background"></div>
+<div class="container">
+    <div class="box-container">
+      <div class="title">
+        <h1>Leader Board</h1>
+        <div class="leaders" *ngIf="ishard ; else hardModeBlock">
+          <h1>Hard Mode</h1>
+        </div>
+        <ng-template #hardModeBlock>
+          <h1>Easy Mode</h1>
+        </ng-template>
+      </div>
+      <div class="box-container-inner-leaderboard ">
+        <div class="leaders" *ngIf="ishard">
+          <div class="current-leaders" *ngFor="let player of hardLeaderboard.slice(0, 5); let i = index">
+            <h1 class="leader">{{ i+1 }}.  {{ player.name }}  >>>>  {{ player.score }}</h1>
+          </div>
+        </div>
+        <div class="leaders" *ngIf="!ishard">
+          <div class="current-leaders" *ngFor="let player of easyLeaderboard.slice(0, 5); let i = index">
+            <h1 class="leader">{{ i+1 }}.  {{ player.name }}  >>>>  {{ player.score }}</h1>
+          </div>
+        </div>
+      </div>
+      <a routerLink="/">
+        <button>Main Menu</button>
+      </a>
+    </div>
+  </div>
